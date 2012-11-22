@@ -1,0 +1,16 @@
+[user]
+    name = Anton Rudeshko
+    email = anton@rudeshko.com
+[alias]
+    vlog = log --pretty='%h (%an) %s' --graph
+    st = status
+    co = checkout
+    ci = commit
+    up = pull
+    di = diff
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
