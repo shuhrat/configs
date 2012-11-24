@@ -1,0 +1,17 @@
+{
+    "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+    "draw_white_space": "all",
+    "font_size": 9,
+    "indent_guide_options":
+    [
+        "draw_active"
+    ],
+    "rulers":
+    [
+        120
+    ],
+    "shift_tab_unindent": true,
+    "show_tab_close_buttons": false,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
+}
