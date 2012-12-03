@@ -1,6 +1,8 @@
 [user]
     name = Anton Rudeshko
     email = anton@rudeshko.com
+[core]
+    mergeoptions = --no-ff
 [alias]
     vlog = log --pretty='%h (%an) %s' --graph
     st = status
