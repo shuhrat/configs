@@ -1,4 +1,28 @@
-alias ls='ls -hGF'
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+else
+    alias ls='ls -G'
+    export LSCOLORS="Exfxcxdxbxegedabagacad"
+fi
+
+alias ls='ls -hF'
 alias ll='ls -l'
 alias la='ls -lA'
 alias l='ls'
@@ -27,3 +51,8 @@ alias gfp='git fetch --prune'
 # .profile utils
 alias vp='vim ~/.profile'
 alias sp='source ~/.profile'
+
+_expand()
+{
+    return 0;
+}
