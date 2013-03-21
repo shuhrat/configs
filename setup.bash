@@ -1,5 +1,3 @@
-#!/bin/bash
-
 if [ -f ~/.profile ]; then
     mv ~/.profile ~/.profile_old
 fi
