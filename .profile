@@ -91,7 +91,7 @@ function prompt {
   # \u = username
   # \h = host
   # \t = time
-  export PS1="\n$BLACK[\t]$GREEN \u$WHITE @ $YELLOW\h$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
+  export PS1="\n$BLACK[\t]$GREEN \u$WHITE@$YELLOW\h$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
 }
 
 prompt
