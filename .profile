@@ -28,7 +28,7 @@ if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 else
-    alias ls='ls -G'
+    alias ls='ls -G --color'
     export LSCOLORS="Exfxcxdxbxegedabagacad"
 fi
 
