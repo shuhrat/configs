@@ -55,6 +55,7 @@ alias gr='git remote -v'
 alias gh='git hist'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
+alias grh='git reset --hard'
 
 # git prompt & completion
 if [ -f ~/configs/git-prompt.sh ]; then
