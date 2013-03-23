@@ -1,6 +1,6 @@
 [user]
     name = Anton Rudeshko
-    email = anton@rudeshko.com
+    email = rudeshko@yandex-team.ru
 [core]
     mergeoptions = --no-ff
     pager = less -r
