@@ -21,3 +21,5 @@
     status = auto
 [push]
     default = simple
+[rebase]
+	autosquash = true
