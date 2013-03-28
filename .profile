@@ -10,7 +10,7 @@ alias j='jobs'
 alias m=$PAGER
 alias e=$EDITOR
 alias g='egrep -i'
-
+alias ..='cd ..'
 alias vim='vim -o'
 
 # if running bash
