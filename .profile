@@ -90,10 +90,16 @@ function prompt {
   local FROWNY="$RED:($RESET"
   local SELECT="if [ \$? = 0 ]; then echo \"$SMILEY\"; else echo \"$FROWNY\"; fi"
 
+  local IDENTITY="$GREEN""local"
+
+  if [ -n "$SSH_CLIENT" ]; then
+    IDENTITY="$GREEN\u$WHITE at $RED\h $WHITE(ssh)"
+  fi
+
   # \u = username
   # \h = host
   # \t = time
-  export PS1="\n$BLACK[\t]$GREEN \u$WHITE@$YELLOW\h$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
+  export PS1="\n$BLACK[\t] $IDENTITY$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
 }
 
 prompt
