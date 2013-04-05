@@ -50,13 +50,16 @@ alias gds='git di --staged'
 alias gm='git merge --no-ff'
 alias gs='git st'
 alias gl='git lol'
-alias gp='git pull --rebase'
+alias gpf='git pull --ff-only'
+alias gpr='git pull --rebase'
 alias gt='git tag'
 alias gr='git remote -v'
 alias gh='git hist'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias grh='git reset --hard'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
 
 # git prompt & completion
 if [ -f ~/configs/git-prompt.sh ]; then
