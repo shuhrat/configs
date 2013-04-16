@@ -11,6 +11,8 @@ alias m=$PAGER
 alias e=$EDITOR
 alias g='egrep -i'
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias vim='vim -o'
 
 # if running bash
@@ -112,6 +114,13 @@ _expand()
 {
     return 0;
 }
+
+# make alias
+if [[ `which gmake` != '' ]]; then
+    alias make='gmake'
+else
+    alias gmake='make'
+fi
 
 # .profile utils
 alias vp='vim ~/.profile'
