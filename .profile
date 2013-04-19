@@ -39,6 +39,13 @@ alias ll='ls -l'
 alias la='ls -l'
 alias l='ls'
 
+alias t='tmux'
+alias tl='tmux ls'
+alias ta='tmux attach'
+alias t0='tmux attach -t 0'
+alias t1='tmux attach -t 1'
+alias t2='tmux attach -t 2'
+
 # git utils
 alias gs='git status'
 alias gc='git commit'
