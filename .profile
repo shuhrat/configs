@@ -10,6 +10,8 @@ alias j='jobs'
 alias m=$PAGER
 alias e=$EDITOR
 alias g='egrep -i'
+alias mkdir='mkdir -p'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
