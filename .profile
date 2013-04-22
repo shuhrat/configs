@@ -13,7 +13,13 @@ alias g='egrep -i'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
 alias vim='vim -o'
+
+if [ -f "$HOME/.extrarc" ]; then
+    . "$HOME/.extrarc"
+fi
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -39,6 +45,7 @@ alias ll='ls -l'
 alias la='ls -l'
 alias l='ls'
 
+# tmux
 alias t='tmux'
 alias tl='tmux ls'
 alias ta='tmux attach'
