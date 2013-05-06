@@ -1,3 +1,7 @@
+echo "--> Loading .profile"
+
+# macports
+alias portup="sudo port selfupdate && sudo port upgrade outdated"
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 export LANG=en_US.UTF-8
@@ -79,6 +83,11 @@ alias grh='git reset --hard'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 
+# defunkt hub alias
+if [[ `which hub` != '' ]]; then
+    alias git='hub'
+fi
+
 # git prompt & completion
 if [ -f ~/configs/git-prompt.sh ]; then
     . ~/configs/git-prompt.sh
@@ -107,6 +116,7 @@ function prompt {
   local CYANBOLD="\[\033[1;36m\]"
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
+
   local SMILEY="$WHITE:)$RESET"
   local FROWNY="$RED:($RESET"
   local SELECT="if [ \$? = 0 ]; then echo \"$SMILEY\"; else echo \"$FROWNY\"; fi"
@@ -120,7 +130,7 @@ function prompt {
   # \u = username
   # \h = host
   # \t = time
-  export PS1="\n$BLACK[\t] $IDENTITY$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
+  export PS1="\n$CYAN[\t] $IDENTITY$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
 }
 
 prompt
