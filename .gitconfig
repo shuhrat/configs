@@ -26,3 +26,5 @@
     default = simple
 [rebase]
 	autosquash = true
+[hub]
+	host = github.yandex-team.ru
