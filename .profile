@@ -65,6 +65,8 @@ alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
 alias go='git checkout'
+alias god='git checkout dev'
+alias gom='git checkout master'
 alias gi='git ci'
 alias gd='git di'
 alias gdp='git diff HEAD^'
@@ -80,8 +82,21 @@ alias gh='git hist'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias grh='git reset --hard'
+alias grho='git reset --hard origin/`git rev-parse --abbrev-ref HEAD`'
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
+alias gud='god && gpf'
+alias grd='git rebase dev'
+
+# Execute on branch
+# updates dev and then rebases current branch
+function gudc {
+    local CURRENT_BRANCH=`git rev-parse --abbrev-ref head`;
+    god;
+    gpf;
+    go $CURRENT_BRANCH;
+    grd;
+}
 
 # defunkt hub alias
 if [[ `which hub` != '' ]]; then

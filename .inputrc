@@ -1,4 +1,2 @@
 set completion-ignore-case on
 set blink-matching-paren on
-tab: menu-complete
-"\e[Z": "\e-1\C-i"
