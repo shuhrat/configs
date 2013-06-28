@@ -4,6 +4,9 @@ echo "--> Loading .profile"
 alias portup="sudo port selfupdate && sudo port upgrade outdated"
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
+# npm 
+export PATH="./node_modules/.bin:$PATH"
+
 export LANG=en_US.UTF-8
 export BLOCKSIZE=K
 export EDITOR=vim
@@ -13,8 +16,7 @@ alias h='fc -l'
 alias j='jobs'
 alias m=$PAGER
 alias e=$EDITOR
-alias g='egrep -i'
-alias mkdir='mkdir -p'
+alias md='mkdir -p'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -79,7 +81,7 @@ alias gpf='git pull --ff-only'
 alias gpr='git pull --rebase'
 alias gt='git tag'
 alias gr='git remote -v'
-alias gh='git hist'
+alias ghs='git hist'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias grh='git reset --hard'
@@ -88,8 +90,13 @@ alias grc='git rebase --continue'
 alias gra='git rebase --abort'
 alias gud='god && gpf'
 alias grd='git rebase dev'
-alias gpc='git push origin `gbc`'
-alias gpcf='git push origin +`gbc`'
+alias gpc='git push -u origin `gbc`'
+alias gpcf='git push -u origin +`gbc`'
+# git show commit date
+alias gsd='git show -s --format="%ci"'
+# git output commit rebase from dev
+alias grf='git merge-base dev `gbc`'
+alias gsh='git show '
 
 # Execute on branch
 # updates dev and then rebases current branch
