@@ -97,6 +97,8 @@ alias gsd='git show -s --format="%ci"'
 # git output commit rebase from dev
 alias grf='git merge-base dev `gbc`'
 alias gsh='git show '
+alias gcp='git cherry-pick '
+alias gcpa='git cherry-pick --abort'
 
 # Execute on branch
 # updates dev and then rebases current branch
