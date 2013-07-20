@@ -1,12 +1,5 @@
-if [ -f ~/.profile ]; then
-    mv ~/.profile ~/.profile_old
-fi
-
-if [ -f ~/.gitconfig ]; then
-    mv ~/.gitconfig ~/.gitconfig_old
-fi
-
-ln -s ~/configs/.profile ~/.profile
-ln -s ~/configs/.gitconfig ~/.gitconfig
-ln -s ~/configs/.vimrc ~/.vimrc
-ln -s ~/configs/.vim ~/.vim
+ln -fs ~/configs/.profile ~/.profile
+ln -fs ~/configs/.gitconfig ~/.gitconfig
+ln -fs ~/configs/.vimrc ~/.vimrc
+ln -fs ~/configs/.inputrc ~/.inputrc
+ln -fs ~/configs/.vim ~/.vim
