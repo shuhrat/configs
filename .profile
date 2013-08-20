@@ -63,56 +63,69 @@ alias t2='tmux attach -t 2'
 
 # git utils
 alias gs='git status'
-alias gc='git commit'
 alias ga='git add'
 alias gb='git branch'
-alias gbc='git rev-parse --abbrev-ref HEAD'
+alias gt='git tag'
+alias gi='git commit'
+alias gm='git merge --no-ff'
+
+alias gd='git diff'
+alias gdp='git diff HEAD^'
+alias gds='git diff --staged'
+
 alias go='git checkout'
 alias god='git checkout dev'
 alias gom='git checkout master'
-alias gi='git ci'
-alias gd='git di'
-alias gdp='git diff HEAD^'
-alias gds='git di --staged'
-alias gm='git merge --no-ff'
+
 alias gs='git st'
 alias gl='git lol'
-alias gpf='git pull --ff-only'
-alias gpr='git pull --rebase'
-alias gt='git tag'
+alias gh='git hist'
+
+# Remote
 alias gr='git remote -v'
-alias ghs='git hist'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
 alias grh='git reset --hard'
 alias grho='git reset --hard origin/`gbc`'
-alias grc='git rebase --continue'
-alias gra='git rebase --abort'
-alias gud='god && gpf'
-alias grd='git rebase dev'
+alias gpf='git pull --ff-only'
+alias gpr='git pull --rebase'
+
 alias gpc='git push -u origin `gbc`'
 alias gpcf='git push -u origin +`gbc`'
-# git show commit date
-alias gsd='git show -s --format="%ci"'
-# git output commit rebase from dev
-alias grf='git merge-base dev `gbc`'
-alias gsh='git show '
+
+# Rebase & Cherry-picking
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
 alias gcp='git cherry-pick '
 alias gcpa='git cherry-pick --abort'
+
+alias gud='god && gpf'
+alias grd='git rebase dev'
+
+alias gsh='git show '
+# show current branch name
+alias gbc='git rev-parse --abbrev-ref HEAD'
+# show commit date
+alias gsd='git show -s --format="%ci"'
+# show merge-base from dev
+alias grf='git merge-base dev `gbc`'
 
 # Execute on branch
 # updates dev and then rebases current branch
 function gudc {
-    local CURRENT_BRANCH=`git rev-parse --abbrev-ref head`;
-    god;
-    gpf;
-    go $CURRENT_BRANCH;
-    grd;
+    local CURRENT_BRANCH=`gbc`
+    god
+    gpf
+    go $CURRENT_BRANCH
+    grd
 }
 
 # defunkt hub alias
 if [[ `which hub` != '' ]]; then
     alias git='hub'
+    alias gbr='git browse'
+    alias gbri='git browse -- issues'
+    alias gbrn='git browse -- network'
 fi
 
 # git prompt & completion
