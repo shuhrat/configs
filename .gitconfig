@@ -3,6 +3,7 @@
     email = anton@rudeshko.com
 [core]
     mergeoptions = --no-ff
+    pager = less -r
 [alias]
     vlog = log --pretty='%h (%an) %s' --graph
     st = status

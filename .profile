@@ -53,6 +53,8 @@ alias ll='ls -l'
 alias la='ls -l'
 alias l='ls'
 
+alias cssc='csscomb -c ~/confgis/.csscomb.json '
+
 # tmux
 alias t='tmux'
 alias tl='tmux ls'
