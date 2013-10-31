@@ -55,6 +55,10 @@ alias l='ls'
 
 alias cssc='csscomb -c ~/confgis/.csscomb.json '
 
+escape-svg () {
+    echo "console.log(escape('`cat $1`'))" | node    
+}
+
 # tmux
 alias t='tmux'
 alias tl='tmux ls'
