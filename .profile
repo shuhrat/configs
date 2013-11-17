@@ -25,7 +25,7 @@ alias -- -='cd -'
 
 # Programs
 alias vim='vim -o'
-alias cssc='csscomb -c ~/confgis/.csscomb.json '
+alias cssc='csscomb -c ~/configs/.csscomb.json '
 alias f='open -a Finder'
 
 if [ -f "$HOME/.extrarc" ]; then
@@ -57,10 +57,6 @@ alias la='ls -l'
 alias l='ls'
 
 alias please=sudo
-
-escape-svg () {
-    echo "console.log(escape('`cat $1`'))" | node    
-}
 
 # tmux
 alias t='tmux'
@@ -195,6 +191,17 @@ if [[ `which gmake` != '' ]]; then
 else
     alias gmake='make'
 fi
+
+function svg2dataURI {
+    local SRC="`cat $1`"
+    local DATA="`echo -n $SRC | base64`"
+
+    echo "data:image/svg+xml;base64,$DATA"
+}
+
+function escape-svg {
+    echo "console.log(escape('`cat $1`'))" | node    
+}
 
 # .profile utils
 alias vp='vim ~/.profile'
