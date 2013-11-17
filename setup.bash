@@ -1,5 +1,4 @@
-ln -fs ~/configs/.profile ~/.profile
-ln -fs ~/configs/.gitconfig ~/.gitconfig
-ln -fs ~/configs/.vimrc ~/.vimrc
-ln -fs ~/configs/.inputrc ~/.inputrc
-ln -fs ~/configs/.vim ~/.vim
+for file in .{profile,gitconfig,vimrc,inputrc}; do
+    ln -fs ~/configs/$file ~/$file
+done
+unset file
