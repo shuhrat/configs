@@ -4,9 +4,6 @@ echo "--> Loading .profile"
 alias portup="sudo port selfupdate && sudo port upgrade outdated"
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
-# npm 
-export PATH="./node_modules/.bin:$PATH"
-
 export LANG=en_US.UTF-8
 export BLOCKSIZE=K
 export EDITOR=vim
@@ -22,8 +19,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
 
+
+# Programs
 alias vim='vim -o'
+alias cssc='csscomb -c ~/confgis/.csscomb.json '
+alias f='open -a Finder'
 
 if [ -f "$HOME/.extrarc" ]; then
     . "$HOME/.extrarc"
@@ -53,7 +56,7 @@ alias ll='ls -l'
 alias la='ls -l'
 alias l='ls'
 
-alias cssc='csscomb -c ~/confgis/.csscomb.json '
+alias please=sudo
 
 escape-svg () {
     echo "console.log(escape('`cat $1`'))" | node    
@@ -67,7 +70,7 @@ alias t0='tmux attach -t 0'
 alias t1='tmux attach -t 1'
 alias t2='tmux attach -t 2'
 
-# git utils
+# Git utils
 alias gs='git status'
 alias ga='git add'
 alias gb='git branch'
@@ -83,11 +86,10 @@ alias go='git checkout'
 alias god='git checkout dev'
 alias gom='git checkout master'
 
-alias gs='git st'
 alias gl='git lol'
 alias gh='git hist'
 
-# Remote
+# Git remotes
 alias gr='git remote -v'
 alias gf='git fetch'
 alias gfp='git fetch --prune'
@@ -96,8 +98,8 @@ alias grho='git reset --hard origin/`gbc`'
 alias gpf='git pull --ff-only'
 alias gpr='git pull --rebase'
 
-alias gpc='git push -u origin `gbc`'
-alias gpcf='git push -u origin +`gbc`'
+alias gpc='git push -u origin `gbc`' # git-push-current
+alias gpcf='git push -u origin +`gbc`' # git-push-current-force
 
 # Rebase & Cherry-picking
 alias grc='git rebase --continue'
@@ -105,26 +107,19 @@ alias gra='git rebase --abort'
 alias gcp='git cherry-pick '
 alias gcpa='git cherry-pick --abort'
 
-alias gud='god && gpf'
+alias gud='god && gpf' # git-update-dev
 alias grd='git rebase dev'
 
 alias gsh='git show '
-# show current branch name
-alias gbc='git rev-parse --abbrev-ref HEAD'
-# show commit date
-alias gsd='git show -s --format="%ci"'
+alias ghs='git hash'
+alias gbc='git rev-parse --abbrev-ref HEAD' # git-branch-current
+alias gsd='git show -s --format="%ci"' # git-show-date
 # show merge-base from dev
-alias grf='git merge-base dev `gbc`'
+alias grf='git merge-base dev `gbc`' # WAT?
 
 # Execute on branch
 # updates dev and then rebases current branch
-function gudc {
-    local CURRENT_BRANCH=`gbc`
-    god
-    gpf
-    go $CURRENT_BRANCH
-    grd
-}
+alias gudc='god && gpf && go - && grd'
 
 # defunkt hub alias
 if [[ `which hub` != '' ]]; then
@@ -163,10 +158,6 @@ function prompt {
   local WHITE="\[\033[0;37m\]"
   local WHITEBOLD="\[\033[1;37m\]"
 
-  local SMILEY="$WHITE:)$RESET"
-  local FROWNY="$RED:($RESET"
-  local SELECT="if [ \$? = 0 ]; then echo \"$SMILEY\"; else echo \"$FROWNY\"; fi"
-
   local IDENTITY="$GREEN""local"
 
   if [ -n "$SSH_CLIENT" ]; then
@@ -181,7 +172,18 @@ function prompt {
 
 prompt
 
-# do not expand paths on tab
+# npm 
+export PATH="./node_modules/.bin:$PATH"
+
+alias npmp="sudo npm publish"
+alias npma="sudo npm adduser"
+alias npmi="sudo npm install"
+alias npmg="sudo npm install -g"
+alias npmu="sudo npm update"
+alias npmr="sudo npm uninstall"
+alias npmrg="sudo npm uninstall -g"
+
+# do not expand paths like '~/' on tab
 _expand()
 {
     return 0;
