@@ -1,0 +1,113 @@
+echo "==> Loading .aliases"
+
+alias m=$PAGER
+alias e=$EDITOR
+alias md='mkdir -p'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+alias vim='vim -o'
+alias cssc='csscomb -c ~/configs/.csscomb.json '
+alias f='open -a Finder'
+
+if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+else
+    alias ls='ls -G --color'
+    export LSCOLORS="Exfxcxdxbxegedabagacad"
+fi
+
+alias ls='ls -hFGA'
+alias ll='ls -l'
+alias la='ls -l'
+alias l='ls'
+
+alias please=sudo
+
+# Git utils
+alias gs='git status'
+alias ga='git add'
+alias gb='git branch'
+alias gt='git tag'
+alias gi='git commit'
+alias gm='git merge --no-ff'
+
+alias gd='git diff'
+alias gdp='git diff HEAD^'
+alias gds='git diff --staged'
+
+alias go='git checkout'
+alias god='git checkout dev'
+alias gom='git checkout master'
+
+alias gl='git lol'
+alias gh='git hist'
+
+# Git remotes
+alias gr='git remote -v'
+alias gf='git fetch'
+alias gfp='git fetch --prune'
+alias grh='git reset --hard'
+alias grho='git reset --hard origin/`gbc`'
+alias gpf='git pull --ff-only'
+alias gpr='git pull --rebase'
+
+alias gpc='git push -u origin `gbc`' # git-push-current
+alias gpcf='git push -u origin +`gbc`' # git-push-current-force
+
+# Rebase & Cherry-picking
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+alias gcp='git cherry-pick '
+alias gcpa='git cherry-pick --abort'
+
+alias gud='god && gpf' # git-update-dev
+alias grd='git rebase dev'
+
+alias gsh='git show '
+alias ghs='git hash'
+alias gbc='git rev-parse --abbrev-ref HEAD' # git-branch-current
+alias gsd='git show -s --format="%ci"' # git-show-date
+# show merge-base from dev
+alias grf='git merge-base dev `gbc`' # WAT?
+
+# Execute on branch
+# updates dev and then rebases current branch
+alias gudc='god && gpf && go - && grd'
+
+# defunkt hub alias
+if [[ `which hub` != '' ]]; then
+    alias git='hub'
+    alias gbr='git browse'
+    alias gbri='git browse -- issues'
+    alias gbrn='git browse -- network'
+fi
+
+# npm
+alias npmp="sudo npm publish"
+alias npma="sudo npm adduser"
+alias npmi="sudo npm install"
+alias npmg="sudo npm install -g"
+alias npmu="sudo npm update"
+alias npmr="sudo npm uninstall"
+alias npmrg="sudo npm uninstall -g"
+
+# make alias
+if [[ `which gmake` != '' ]]; then
+    alias make='gmake'
+else
+    alias gmake='make'
+fi
+
+# .profile utils
+alias vp='vim ~/.profile'
+alias sp='source ~/.profile'

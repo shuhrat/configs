@@ -1,0 +1,7 @@
+echo "==> Loading .path"
+
+# macports?
+export PATH="$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH"
+
+# npm shortcut
+export PATH="./node_modules/.bin:$PATH"

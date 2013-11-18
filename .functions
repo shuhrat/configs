@@ -1,0 +1,12 @@
+echo "==> Loading .functions"
+
+function svg2dataURI {
+    local SRC="`cat $1`"
+    local DATA="`echo -n $SRC | base64`"
+
+    echo "data:image/svg+xml;base64,$DATA"
+}
+
+function escape-svg {
+    echo "console.log(escape('`cat $1`'))" | node    
+}

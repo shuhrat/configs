@@ -2,24 +2,21 @@
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-function installcask() {
-    brew cask install "${@}" 2> /dev/null
-}
-
 # core stuff
-installcask iterm2
-installcask xquartz
-installcask ukelele
-installcask google-chrome
-installcask sizeup
-installcask xtrafinder
+brew cask install iterm2
+brew cask install xquartz
+#brew cask install ukelele
+brew cask install google-chrome
+brew cask install spectacle
+brew cask install xtrafinder
 
 # communications
-installcask adium
-installcask google-hangouts
+brew cask install adium
+brew cask install google-hangouts
 
 # development stuff
-installcask imagealpha
-installcask imageoptim
-installcask sublime-text
-installcask intellij-ultimate
+brew cask install imagealpha
+brew cask install imageoptim
+brew cask install sublime-text
+ln -fs ~/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+brew cask install intellij-ultimate

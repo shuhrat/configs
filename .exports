@@ -1,0 +1,6 @@
+echo "==> Loading .exports"
+
+export LANG=en_US.UTF-8
+export BLOCKSIZE=K
+export EDITOR=vim
+export PAGER=less
