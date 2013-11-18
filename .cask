@@ -6,13 +6,20 @@ function installcask() {
     brew cask install "${@}" 2> /dev/null
 }
 
-installcask adium
-installcask sizeup
+# core stuff
+installcask iterm2
+installcask xquartz
+installcask ukelele
 installcask google-chrome
+installcask sizeup
+installcask xtrafinder
+
+# communications
+installcask adium
 installcask google-hangouts
+
+# development stuff
 installcask imagealpha
 installcask imageoptim
-installcask iterm2
 installcask sublime-text
-installcask ukelele
 installcask intellij-ultimate
