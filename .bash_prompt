@@ -1,5 +1,3 @@
-echo "==> Loading .bash_prompt"
-
 # git-enabled prompt
 function prompt {
   local RESET="\[\033[00m\]"
@@ -31,5 +29,9 @@ function prompt {
   # \t = time
   export PS1="\n$CYAN[\t] $IDENTITY$RESET:$BLUE\w$PURPLE\$(__git_ps1) $RESET\n\\$ "
 }
+
+# Change cursor to blinking bar
+# http://superuser.com/questions/607478/how-do-you-change-the-xterm-cursor-to-an-i-beam-or-vertical-bar
+echo -e -n "\x1b[\x35 q"
 
 prompt
