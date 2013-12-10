@@ -29,21 +29,21 @@ alias ll='ls -l'
 alias la='ls -l'
 alias l='ls'
 
-alias please=sudo
+alias please='sudo'
 
 # Git utils
 alias gs='git status'
-alias ga='git add'
-alias gb='git branch'
-alias gt='git tag'
-alias gi='git commit'
-alias gm='git merge --no-ff'
+alias ga='git add' && __git_complete ga _git_add
+alias gb='git branch' && __git_complete gb _git_branch
+alias gt='git tag' && __git_complete gt _git_tag
+alias gi='git commit' && __git_complete gi _git_commit
+alias gm='git merge --no-ff' && __git_complete gm _git_merge
 
 alias gd='git diff'
 alias gdp='git diff HEAD^'
 alias gds='git diff --staged'
 
-alias go='git checkout'
+alias go='git checkout' && __git_complete go _git_checkout
 alias god='git checkout dev'
 alias gom='git checkout master'
 
@@ -65,13 +65,13 @@ alias gpcf='git push -u origin +`gbc`' # git-push-current-force
 # Rebase & Cherry-picking
 alias grc='git rebase --continue'
 alias gra='git rebase --abort'
-alias gcp='git cherry-pick '
+alias gcp='git cherry-pick ' && __git_complete gcp _git_cherry_pick
 alias gcpa='git cherry-pick --abort'
 
 alias gud='god && gpf' # git-update-dev
 alias grd='git rebase dev'
 
-alias gsh='git show '
+alias gsh='git show ' && __git_complete gsh _git_show
 alias ghs='git hash'
 alias gbc='git rev-parse --abbrev-ref HEAD' # git-branch-current
 alias gsd='git show -s --format="%ci"' # git-show-date
